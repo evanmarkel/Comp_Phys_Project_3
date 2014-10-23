@@ -29,7 +29,7 @@
             potentialEnergy = 0;
             angularMomentum.setToZero();
             a.setToZero();
-            double G = 4*3.14*3.14;
+            double G = 4*M_PI*M_PI;
 
                     for(int i=0; i<numberOfBodies(); i++) {
                         CelestialBody &body1 = bodies[i];
@@ -38,7 +38,7 @@
                                 vec3 deltaRVector =  body1.position - body2.position;
                                  double dx = X[4*i + 0] - X[4*j + 0];
                                  double dy = X[4*i + 1] - X[4*j + 1];
-                                // dz = X(4*i + 2) - X(4*j + 2);
+
                                  double r = sqrt(dx*dx + dy*dy);
 
                             double dr = deltaRVector.length();
@@ -50,25 +50,26 @@
                         //a is the force multiplied by the relative position of the two bodies. the movement is added to previous position
                         double axtemp = dx*(f);
                         double aytemp = dy*(f);
-                        //double aztemp = deltaRVector[2]*(f);
-                        //add the
+
                    // vec3 atemp = vec3(axtemp,aytemp,aztemp);
                    // a=a.operator +(atemp);
 
                     //forces vector values for body 1
                     forces[2*i + 0] += axtemp;
                     forces[2*i + 1] += aytemp;
-                    //forces[2*i + 2] += aztemp;
 
                     //forces vector values for body 2
                     forces[2*j + 0] -= axtemp;
                     forces[2*j + 1] -= aytemp;
-                    //forces[2*j + 2] -= aztemp;
 
                     potentialEnergy -= (body1.mass*body2.mass)/dr;
                     }
 
             kineticEnergy += 0.5*body1.mass*body1.velocity.lengthSquared();
+
+            //angular momentum L = r x v
+            double dangularMomentum = body1.position.length() * body1.velocity.length();
+            std::cout << potentialEnergy << " and KE " << kineticEnergy << "and L" << dangularMomentum<< std::endl;
         }
             //calculate Vx Vy.assign to X. also assign forces.
             for (int i =0; i <numberOfBodies(); i++){
@@ -88,5 +89,5 @@
 
     double SolarSystem::totalEnergy()
     {
-        return kineticEnergy + potentialEnergy;
+        return this->kineticEnergy + this->potentialEnergy;
     }

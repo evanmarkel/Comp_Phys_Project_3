@@ -11,7 +11,7 @@ void RK4::integrate(std::valarray<double> &X, double dt, SolarSystem mysystem)
     std::valarray<double> k3(1,4*mysystem.numberOfBodies());
     std::valarray<double> k4(1,4*mysystem.numberOfBodies());
 
-    // Do RK4 integration here
+    // RK4 integration using vector X from solarysystem class.
     k1 = mysystem.calculateForcesAndEnergy(X) * dt;
     k2 = mysystem.calculateForcesAndEnergy(X + 0.5 * k1) * dt;
     k3 = mysystem.calculateForcesAndEnergy(X + 0.5 * k2) * dt;
