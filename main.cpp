@@ -14,8 +14,8 @@ int main()
     ofstream myfile;
     myfile.open("datasolarsystem5.txt");
     //define step variable h and run length. years are the units
-    double h = .1; //step length
-    double final_time = 7000; //years
+    double h = .01; //step length
+    double final_time = 700; //years
     double G = 4*M_PI*M_PI; //value of Gravitational constant.
     double earthvel = 2*M_PI;
 
