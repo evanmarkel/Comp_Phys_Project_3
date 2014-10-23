@@ -69,7 +69,7 @@
 
             //angular momentum L = r x v
             double dangularMomentum = body1.position.length() * body1.velocity.length();
-            std::cout << potentialEnergy << " and KE " << kineticEnergy << "and L" << dangularMomentum<< std::endl;
+           // std::cout << potentialEnergy << " and KE " << kineticEnergy << "and L" << dangularMomentum<< std::endl;
         }
             //calculate Vx Vy.assign to X. also assign forces.
             for (int i =0; i <numberOfBodies(); i++){

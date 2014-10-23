@@ -12,25 +12,25 @@ using namespace std;
 int main()
 {
     ofstream myfile;
-    myfile.open("datasolarsystem.txt");
+    myfile.open("datasolarsystem5.txt");
     //define step variable h and run length. years are the units
-    double h = .01; //step length
-    double final_time = 500000; //years
+    double h = .1; //step length
+    double final_time = 7000; //years
     double G = 4*M_PI*M_PI; //value of Gravitational constant.
     double earthvel = 2*M_PI;
 
     //earth velocity given by initial condition x = 1AU, vy_e = 2*pi*1AU, mass_e/mass_sun = 3e-6
     SolarSystem mySolarSystem;
     CelestialBody sun(vec3(0,0,0), vec3(0,-.00890885,0), 0.99865924);
-    CelestialBody mercury(vec3(-.39,0,0), vec3(0,-1.67*earthvel,0), 0.0000001649704703);
-    CelestialBody venus(vec3(0,.72,0), vec3(1.174*earthvel,0,0), 0.000002444562423);
+    CelestialBody mercury(vec3(-.39,0,0), vec3(0,-1.67*earthvel,0), 1.65e-7);
+    CelestialBody venus(vec3(0,.72,0), vec3(1.174*earthvel,0,0), 2.44e-6);
     CelestialBody earth(vec3(1, 0, 0), vec3(0, 2*M_PI, 0), 3e-6);
     CelestialBody mars(vec3(0,1.52,0), vec3(.802*earthvel,0, 0), 0.0000003209425513);
-    CelestialBody jupiter(vec3(5.2, 0, 0), vec3(0, .434*earthvel, 0), 0.0009532953601);  //Jupiter's orbital velocity is 43% of earth's 1/r^2. or 5.20/12year orbit.
-    CelestialBody saturn(vec3(0,-9.54,0), vec3(-.323*earthvel,0, 0), 0.0002854259088);
-    CelestialBody uranus(vec3(19.19,0,0), vec3(0,.228*earthvel, 0), 0.00004349221489);
-    CelestialBody neptune(vec3(30.06,0,0), vec3(0,.182*earthvel, 0), 0.00005159076525);
-    CelestialBody pluto(vec3(0,39.53,0), vec3(.159*earthvel,0, 0), 0.00000000779860405);
+    CelestialBody jupiter(vec3(5.2, 0, 0), vec3(0, .434*earthvel, 0), 3e-3);  //Jupiter's orbital velocity is 43% of earth's 1/r^2. or 5.20/12year orbit.
+    CelestialBody saturn(vec3(0,-9.54,0), vec3(-.323*earthvel,0, 0), 2.85e-5);
+    CelestialBody uranus(vec3(19.19,0,0), vec3(0,.228*earthvel, 0), 4.3e-5);
+    CelestialBody neptune(vec3(30.06,0,0), vec3(0,.182*earthvel, 0), 5.516e-5);
+    CelestialBody pluto(vec3(0,39.53,0), vec3(.159*earthvel,0, 0), 7.79e-9);
 
 
     mySolarSystem.addCelestialBody(sun);
@@ -45,7 +45,7 @@ int main()
     mySolarSystem.addCelestialBody(pluto);
 
     mySolarSystem.makeX();
-    for(int i = 0; i < final_time; i++){
+    for(int i = 0; i < final_time/h; i++){
 
         //perform RK4 for the timescale of observation
         RK4::integrate(mySolarSystem.X,h,mySolarSystem);
