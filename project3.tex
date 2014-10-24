@@ -33,7 +33,7 @@ My C++ program is located here in GitHub \url{https://github.com/evanmarkel/Proj
 
 \section*{Introduction}
 %
-In this project, I have used numerical methods to solve second order differential equations to simulate the solar system. Using relative units for distance, velocity, and mass, I was able to discretize the equations in unitless quantities similar to previous projects. The Runge-Kutta4 method and Verlet algorithm have proven very accurate in modeling celestial dynamics according to Newton's and Kepler's laws. We begin by separating Newton's law into into its Cartesian components here: 
+In this project, I have used numerical methods to solve second order differential equations to simulate the solar system. Using relative units for distance, velocity, and mass, I was able to discretize the equations in unitless quantities similar to previous projects. The Runge-Kutta4 method and Verlet algorithm have proven very accurate in modeling celestial dynamics according to Newton's and Kepler's laws. We begin by separating Newton's second law of motion into into its two-dimensional Cartesian components for a circular orbit here: 
 \[
 \frac{d^2x}{dt^2}=\frac{F_{G,x}}{M_{\mathrm{Earth}}},
 \]
@@ -41,12 +41,29 @@ and
 \[
 \frac{d^2y}{dt^2}=\frac{F_{G,y}}{M_{\mathrm{Earth}}},
 \]\newline
-and utilizing the numerical Verlet, Euler-Cromer, and Runge-Kutta algorithms to solve the differential equations pertaining to the time derivatives in the physical laws. 
+We then can use these equations along with the equation for force below to derive four coupled first order differential equations for celestial motion in two-dimensions. 
+\[
+F_G= \frac{M_{\mathrm{body1}}v_{body1}^2}{r}=\frac{GM_{body2}M_{\mathrm{body1}}}{r^2},
+\]\newline
+We then express the motion of body 1 around body 2 with four component time derivatives: 
+\[
+\frac{dv_{x1}}=\frac{-G*M_{body2}}{r^{3}}*x_{body1}, \hspace{.5} \frac{dx_{body1}}{dt}=v_{x}_{body1}
+\]
+and
+\[
+\frac{dv_{y1}}=\frac{-G*M_{body2}}{r^{3}}*y_{body1}, \hspace{.5} \frac{dy_{body1}}{dt}=v_{y}_{body1}
+\]
+The above equations now become the and utilizing the numerical Verlet, Euler-Cromer, and Runge-Kutta algorithms to solve the differential equations pertaining to the time derivatives in the physical laws. 
 
 \newpage
 \begin{enumerate}
 \item[\bf Two-Body Problem]
-
+These equations nicely predict the motion of the earth around the sun in my simulation. My code creates a celestial object which generates a vector in the SolarSystem class that contains the initial position and velocity for the object in two dimensions. For the Earth, we can easily find the needed initial velocity for circular motion: 
+\[
+v_{earth}^2r=GM_{\odot}=4\pi^2\mathrm{AU}^3/\mathrm{yr}^2.
+\]\newline
+For $r=1AU$ we see that in these units $v_{earth}=2*\pi$. Using this velocity and initial position of (1AU,0) we get a stable orbit. 
+\includegraphics[width=6in,height=4.5in]{earth_sun_system.png}//
 \item[\bf Part B]
 Comparing my eigenvalues with the Armadillo $eig_sym(A)$ solver yielded nearly identical results for larger values of N. The eigenvalues also correspond to the correct energy states (3,7,11, etc) as given in the project description, so we can go on to the more complicated problem knowing the algorithm works.The numerical values are given in the table below. \newline
 After running my algorithm, the parameters $N_step$ and $\rho_{max}$ need to be decided upon before moving to the two electron wave equation. First, here's a table showing the number of steps given to the algorithm in order to determine four leading digits for the first 3 eigenvalues. For this case, our $\epsilon = 1e-8$, which is the low level threshold for assigning non-diagonal matrix elements as essentially zero. Also, $\rho_{max} = 5$ for this table.  
