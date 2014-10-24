@@ -63,10 +63,8 @@ These equations nicely predict the motion of the earth around the sun in my simu
 v_{earth}^2r=GM_{\odot}=4\pi^2\mathrm{AU}^3/\mathrm{yr}^2.
 \]\newline
 For $r=1AU$ we see that in these units $v_{earth}=2*\pi$. Using this velocity and initial position of (1AU,0) we get a stable orbit. 
-\begin{figure}
-\centering
-\includegraphics[width=6in, height=6in]{earth_sun_system.png}\\
-\end{figure}
+\center
+\includegraphics[width=5in, height=4in]{earth_sun_system.png}\\
 This orbit is stable as we can see from the graph. Earth orbits the sun (invisible at center). The mass of earth is given in the relative units of the sun's mass (3e-6) and the distance is 1AU. Also, the kinetic energy, potential energy, and angular momentum are all constant in this simple scenario. We see that $KE=\frac{1}{2}*m*v^{2}$, $PE=\frac{M_{\odot}*M_{earth}}{distance=1AU}$, and $L=distance x velocity$ are constant with constant velocity, distance. In this scenario I found the kinetic energy to be 5.9217e-5 and the potential energy to be the mass of the earth in the given units ($M_{\odot}$ and $r$ = 1). 
 Changing the velocity of Earth can disrupt this stable orbit. I found that by increasing the velocity by about 40 percent will allow the earth to escape the sun's gravity. There is an analytical solution as the escape velocity is given by
 \[
@@ -105,19 +103,16 @@ We know the velocity of earth is $2*\pi$ and the velocity of jupiter is $.4727*\
 Here we see in the closeup that the sun is not stationary but undulates with the periodicity of the two other smaller bodies. \newline
 Finally, I add in all the other planets of the solar system and attempt to keep momentum conserved by calculating the initial velocity based on distance from sun, orbital period, and mass as seen in the following table: 
 \includegraphics[width=6in]{table.png}\\
-The sun's initial velocity was (slightly) increased to accommodate the added planets. The results of the inner planets are included here. The period of observation is 10 years. 
+The sun's initial velocity was (slightly) increased to accommodate the added planets. The results of the inner planets are included here. The period of observation is 10 years. No disasters!
 \includegraphics[width=6in]{innerplanets.png}\\
-And here is a graph of all the planets, although only the outer orbits are discernible. 
+And here is a graph of all the planets, although only the outer orbits are really discernible. The simulation ran for 200 years, so Pluto has not quite completed its orbit yet. 
 \includegraphics[width=6in]{allplanets.png}\\
 
-The initial positions are arbitrarily estimated as I could not find accurate 2-D cartesian starting points for a circular simulation such as this. Thus, the solar system drifts over a long period of time as seen in this graph. 
+The initial positions are arbitrarily estimated as I could not find accurate 2-D cartesian starting points for a circular simulation such as this. Here is an interesting graph that shows a stable system that drifts over a long period of time (7000 years). There are also no inner planets, which also will contribute to the imbalance. 
 \includegraphics[width=6in]{drift.png}\\
 
-
-
 \item[\bf Conclusion]
-
-This project has interesting physical takeaways and demonstrates how some simple algorithms can aid a great deal toward solving problems where there is no easy analytical solution. 
+This simulation of the solar system is simplified but a relatively few number of calculations have made an accurate and stable model that is good for predicting many scenarios accurately, such as the increase in mass of a particular planet or a shift in momentum in the solar system. 
 
 \end{enumerate}
 
