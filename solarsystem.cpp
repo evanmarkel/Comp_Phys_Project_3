@@ -21,7 +21,6 @@
           }
         }
 
-
       std::valarray<double> SolarSystem::calculateForcesAndEnergy(std::valarray<double> X)
         {
             forces = 0;
@@ -36,23 +35,16 @@
                         for(int j=i+1; j<numberOfBodies(); j++) {
                             CelestialBody &body2 = bodies[j];
                                 vec3 deltaRVector =  body1.position - body2.position;
-                                 double dx = X[4*i + 0] - X[4*j + 0];
-                                 double dy = X[4*i + 1] - X[4*j + 1];
+                                double dr = deltaRVector.length();
+                                double dx = X[4*i + 0] - X[4*j + 0];
+                                double dy = X[4*i + 1] - X[4*j + 1];
 
-                                 double r = sqrt(dx*dx + dy*dy);
-
-                            double dr = deltaRVector.length();
-                            // Calculate the force and potential energy here
-
-                            //f is the force acting between body 1 and body 2 .- sign switches
-                            double f = -(G * body1.mass * body2.mass)/(r*r*r);
+                            //f is the force acting between body 1 and body 2
+                            double f = -(G * body1.mass * body2.mass)/(dr*dr*dr);
 
                         //a is the force multiplied by the relative position of the two bodies. the movement is added to previous position
                         double axtemp = dx*(f);
                         double aytemp = dy*(f);
-
-                   // vec3 atemp = vec3(axtemp,aytemp,aztemp);
-                   // a=a.operator +(atemp);
 
                     //forces vector values for body 1
                     forces[2*i + 0] += axtemp;

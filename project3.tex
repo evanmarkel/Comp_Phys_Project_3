@@ -47,97 +47,73 @@ F_G= \frac{M_{\mathrm{body1}}v_{body1}^2}{r}=\frac{GM_{body2}M_{\mathrm{body1}}}
 \]\newline
 We then express the motion of body 1 around body 2 with four component time derivatives: 
 \[
-\frac{dv_{x1}}=\frac{-G*M_{body2}}{r^{3}}*x_{body1}, \hspace{.5} \frac{dx_{body1}}{dt}=v_{x}_{body1}
+\frac{dv_{x1}}{dt}=\frac{-G*M_{body2}}{r^{3}}*x_{body1}, \hspace{.5 cm} \frac{dx_{body1}}{dt}=vx_{body1}
 \]
 and
 \[
-\frac{dv_{y1}}=\frac{-G*M_{body2}}{r^{3}}*y_{body1}, \hspace{.5} \frac{dy_{body1}}{dt}=v_{y}_{body1}
+\frac{dv_{y1}}{dt}=\frac{-G*M_{body2}}{r^{3}}*y_{body1}, \hspace{.5 cm} \frac{dy_{body1}}{dt}=vy_{body1}
 \]
 The above equations now become the and utilizing the numerical Verlet, Euler-Cromer, and Runge-Kutta algorithms to solve the differential equations pertaining to the time derivatives in the physical laws. 
 
 \newpage
 \begin{enumerate}
 \item[\bf Two-Body Problem]
-These equations nicely predict the motion of the earth around the sun in my simulation. My code creates a celestial object which generates a vector in the SolarSystem class that contains the initial position and velocity for the object in two dimensions. For the Earth, we can easily find the needed initial velocity for circular motion: 
+These equations nicely predict the motion of the earth around the sun in my simulation. My code creates a celestial object which generates a vector in the SolarSystem class that contains the initial position and velocity for the object in two dimensions. The system is then updated using the RK4 method and the new position and velocity are logged. Proceeding in this manner, the plot of these data points produces the orbit. This graph runs for 100 years with a calculation step length of .01 years. The broad blue band shows the oscillation in the orbit.  For the Earth, we can easily find the needed initial velocity for circular motion: 
 \[
 v_{earth}^2r=GM_{\odot}=4\pi^2\mathrm{AU}^3/\mathrm{yr}^2.
 \]\newline
 For $r=1AU$ we see that in these units $v_{earth}=2*\pi$. Using this velocity and initial position of (1AU,0) we get a stable orbit. 
-\includegraphics[width=6in,height=4.5in]{earth_sun_system.png}//
-\item[\bf Part B]
-Comparing my eigenvalues with the Armadillo $eig_sym(A)$ solver yielded nearly identical results for larger values of N. The eigenvalues also correspond to the correct energy states (3,7,11, etc) as given in the project description, so we can go on to the more complicated problem knowing the algorithm works.The numerical values are given in the table below. \newline
-After running my algorithm, the parameters $N_step$ and $\rho_{max}$ need to be decided upon before moving to the two electron wave equation. First, here's a table showing the number of steps given to the algorithm in order to determine four leading digits for the first 3 eigenvalues. For this case, our $\epsilon = 1e-8$, which is the low level threshold for assigning non-diagonal matrix elements as essentially zero. Also, $\rho_{max} = 5$ for this table.  
-\begin{center}
-    \begin{tabular}{| c | c | c | c | c |}
-    \hline
-    \bf$ N_{step}$	& \bf $\lambda_{1}$	 & $\bf \lambda_{2}$	 & $\bf \lambda_{3}$	 & 	\bf No. iterations \\ \hline
-	10 & 2.9338	 & 6.6598 &  10.1415 & 139 \\ \hline
-	50 & 2.9970  & 6.9850  & 10.963 & 4,039 \\ \hline
-	100 & 2.9992 & 6.9962 & 10.991 & 16,474 \\ \hline
-	125 & 2.9995 & 6.9975 & 10.994 & 25,826 \\ \hline
-	150 & 2.9997 & 6.9983  & 10.996 & 37,443 \\ \hline
-	175 & 2.9997 & 6.9987 	& 10.997 & 50,991 \\ \hline
-	200 & 2.9998 & 6.9990 	& 10.998 & 66,827 \\ \hline
-	225 & 2.9998 & 6.9992	& 10.998 & 84,775 \\ \hline
-	250 & 2.9999 & 6.9994 	& 10.999 & 104,290 \\ \hline
-	275 & 2.9999 & 6.9996 	& 10.999 & 128,507 \\ \hline
-	400 & 3.0000 & 6.9998 	& 11.000 & 269,020 \\ 
-	 \hline	
-    \end{tabular}
-\end{center}
-
-Using $N_{steps}$ =250 gives us (basically) four leading digits and the values of $\epsilon$ and $\rho_{max}$ are good choices as well. These are the values I use throughout the project. However, just to check: when I change $\rho_{max}$ to 10, and $N_{steps}$ =100, the values are $\lambda_{1}$ = 2.9969, $\lambda_{2}$ = 6.9846, and $\lambda_{3}$ = 10.962. The relative error compared with the table above for n=100 are $.077\%$ for $\lambda_{1}$, $.165\%$ for $\lambda_{2}$, and $.264\%$ for $\lambda_{3}$. When $\rho_{max}$ = 100, the results are very far off. Since this is a numerical estimation, a lower value for  $\rho_{max}$ gives a more accurate solution. However, $\rho_{max}$ must be large enough to give us a good physical picture. 
-Here is a graph of the $N_{step}$ -the dimensionality of the matrix versus the number of iterations needed to get the eigenvalues. We can see that it goes$\sim O(n^{2})$.
-\includegraphics[width=6in,height=4.5in]{iterations.png}//
-Now we'll look at the run-time of the Jacobi method versus the the armadillo solver. The values :$\epsilon$=1e-8 and $\rho_{max}$ =5.  
-\begin{center}
-    \begin{tabular}{| c | c | c |}
-    \hline
-   \bf $N_{step}$ & \bf Armasolve time	 & \bf Jacobisolve time \\ \hline
-	10 & .00071311	 & $7.4863 x 10^{-5}$  \\ \hline
-	50 & .00955606 & .021553   \\ \hline
-	100 & .119834 & .297856 \\ \hline
-	150 & .292907 & 1.43716   \\ \hline
-	200 & .543296 & 4.43368  \\ \hline
-	250 & .854114 & 10.6005	 \\ \hline
-	400 & .879044 & 73.0668	 \\ 
-	 \hline	
-    \end{tabular}
-\end{center}
-We see that the Jacobi is actually faster for N=10 but then gets much slower as N increases into the range that we need for numerical precision. 
-
-
-\item[\bf Part C]
-We now move on to the two electron case. The main difference here is the change in potential. The Schr\"odinger equation simplifies as in part a as follows: 
+\begin{figure}
+\centering
+\includegraphics[width=6in, height=6in]{earth_sun_system.png}\\
+\end{figure}
+This orbit is stable as we can see from the graph. Earth orbits the sun (invisible at center). The mass of earth is given in the relative units of the sun's mass (3e-6) and the distance is 1AU. Also, the kinetic energy, potential energy, and angular momentum are all constant in this simple scenario. We see that $KE=\frac{1}{2}*m*v^{2}$, $PE=\frac{M_{\odot}*M_{earth}}{distance=1AU}$, and $L=distance x velocity$ are constant with constant velocity, distance. In this scenario I found the kinetic energy to be 5.9217e-5 and the potential energy to be the mass of the earth in the given units ($M_{\odot}$ and $r$ = 1). 
+Changing the velocity of Earth can disrupt this stable orbit. I found that by increasing the velocity by about 40 percent will allow the earth to escape the sun's gravity. There is an analytical solution as the escape velocity is given by
 \[
-  -\frac{d^2}{d\rho^2} \psi(\rho) 
-       + \frac{1}{4}\frac{mk}{\hbar^2} \alpha^4\rho^2\psi(\rho)+\frac{m\alpha \beta e^2}{\rho\hbar^2}\psi(\rho)  = 
-\frac{m\alpha^2}{\hbar^2}E_r \psi(\rho) .
-\]
-The change in potential from a goes as $\rho^2$ to $\omega_r^2\rho^2+1/\rho$. The $\omega_r$ term indicates the strength of the oscillator potential and will influence the values of the energy states of the two particle system. We look at the cases where $\omega_r = 0.01$, $\omega_r = 0.5$, $\omega_r =1$, and $\omega_r = 5$.  We change the potential and re-run the program for the 4 different values of $\omega_r$. The first 3 eigenvalues are given in the table below. The results use $N_{step}$ at 250, $\rho_{max}$ at 5, and $\epsilon$ at 1e-8. 
-\newline
-\begin{center}
-    \begin{tabular}{| c | c | c | c |}
-    \hline
-    \bf $\omega_r$	& \bf  $\lambda_1$	 & \bf  $\lambda_{2}$ & \bf  $\lambda_{3}$ \\ \hline
-	0.01 & 0.84075	 & 2.1737 &  4.2372\\ \hline
-	0.5 & 2.2310 & 4.1691  & 6.3858 \\ \hline
-	1.0 & 4.0577 & 7.9091 & 11.818\\ \hline
-	5.0 & 17.445 & 37.057 & 56.817 \\ 
-	 \hline	
-    \end{tabular}
-\end{center}
-Here are the values for the first 3 energy states. We see the dependence on $\omega_r$ is quite large for the values of the energy levels. For $\omega_r$ = .01, the electrons are not closely coupled and the energy level of the oscillator is even lower than for the single electron case. We see when $\omega_r$ grows to 1 and 5, the values are higher. Physically, the electrons are brought closer together in the oscillator well and the repulsive force means that the energy needed for the state to exist is greater. The greater potential should lead to a higher value of the eigenvalues. 
+\it v_{escape}=\sqrt{\frac{2*G*M_{\odot}}{r}}
+\] We can see that at $v_{earth} = \sqrt{8}*\pi$ earth does escape. In more physical units, the escape velocity of Earth is 42.1 km/s. 
+\centering
+\includegraphics[width=6in]{planet_escapes_sun_at_vsqrt8pi_in_given_units.png}\\
+However, at $v_{earth} = \sqrt{7.5}*\pi$, the earth does not escape but instead takes a much longer orbit. 
+\includegraphics[width=6in]{planet_doesnt_escape_at_sqrt75pi.png}\\
 
-\item[\bf Part D]
-Finally, we want to plot the wave functions for the first 3 energy states for the 4 $\omega_r$ values. The eigenvectors contain the constituent elements of the wave equation at the various positions along $[0,\rho_{max}=5.0]$. The tricky part is indexing the locations of the eigenvectors within the eigenmatrix from the position of the corresponding eigenvalue. Since the Jacobi algorithm does not necessarily return the eigenvalues in sorted order, another for loop is needed to extract the first 3 eigenvectors--> corresponding to the 3 lowest energy states. \newline
-The next tricky part is determining how to normalize the eigenvectors. From quantum mechanics, we know that in an infinite potential well, the wave function should be normalized by $sqrt(2/length of well)$. In our case, we have abstracted the parameters in this assignment, and therefore the normalization is a bit more abstract here. There should be an h term-or a similar term that takes into account the length of the well- included in the normalization. While this may be a concern, the probability distribution function is the square of the wave equation and must sum to 1. Therefore, any constant in front of the wave equation can be eliminated as it will not change the relative values of the wave equation when multiplied uniformly. And since we are normalizing to 1, the term can be omitted. So in my code, I've squared the eigenvectors and applied the armadillo normalise() function.  I've included 4 plots for the 4 different values of $\omega_r$. The first 3 eigenvectors are graphed on top of each other in each case to highlight the relative probability strengths. 
-\includegraphics[width=6in]{w=001.png}\\
-\includegraphics[width=6in]{w=05.png}\\
-\includegraphics[width=6in]{w=10.png}\\
-\includegraphics[width=6in]{w=50.png}\\
-We can see the coupling effect of the oscillator strength. The electron can spread out more freely with lower $\omega_r$ values and is more tightly bound for higher ones. The shape of the distribution functions seems correct and the strong and weak particle interactions due to the strength of the harmonic oscillator as $\omega_r$ are also apparent from the plots. The area under the curve for each of the 3 energy states sum to 1. The peaks for the energy states 2 and 3 have higher probabilities closer to zero for $\omega_r$= .01  and this is reversed for $\omega_r$ = 0.5, 1.0, and 5.0. I have some reservations about the correctness of the eigenvector plots, but here's my hand-waving attempt: I imagine the probability of the smaller relative radius would be greater for a weaker harmonic oscillator coupling than for a stronger one. Based on these plots, I conjecture that the higher $\omega_r$ means a more tightly bound nucleus with the electrons pushing more towards the outside of the well (Coulomb repulsion) which is a result of the higher potential energy of that system.The lower $\omega_r$ strength has a higher entropy and lower energy than the higher $\omega_r$ strengths. We can also see this higher cost energy effect in the relative growth of the first 6 eigenvalues as plotted below in a stacked area chart divided by the four oscillator strengths: 
-\includegraphics[width=6in]{eigenvaluesw.png}
+\item[\bf Three-Body Problem ]
+Now I add Jupiter to the solar system. The introduction of a third body means that the force interaction between Earth and Jupiter must be accounted for in my code as well as the major force of each body to the sun:
+\[
+F_{\mathrm{Earth-Jupiter}}=\frac{GM_{\mathrm{Jupiter}}M_{\mathrm{Earth}}}{r_{\mathrm{Earth-Jupiter}}^2},
+\]
+To do this, my code contains a double loop that calculates the forces and potential energy between all bodies in the solar system. This is useful for easily adding new celestial objects to the solar system. 
+\includegraphics[width=6in]{JES.png}\\
+Jupiter is a large object (one thousandth the mass of the sun) and perturbs the orbit of the earth. The RK4 and Verlet algorithm is now less stable because of this. I found that when my step length became larger than .05 years, the system would become unstable. Run over long periods of time, one of the positions would diverge, meaning that the object would be ejected out into space. However, keeping the step length at .01 and running the system for 700 years gave pretty stable results. The orbital velocity of Jupiter can be found by the same means as earth's. We can just take a ratio here of the distance from the sun divided by the orbital period. In jupiter's case 5.2AU/12years gives the orbital velocity as .434 that of earth's.  \newline
+
+Now let's examine two cases that can further de-stabilize the solar system. When the mass of Jupiter is increased, this has a noticeable effect on earth. First, when Jupiter is ten times more massive, the solar system is still stable but the earth begins to spiral within its larger orbit around the sun. 
+\includegraphics[width=6in]{jupiter_is_10x_present_mass_solar_system_stable_but_earths_orbit_wobbles_.png}\\
+When Jupiter is 1000 times more massive then it's equal to the sun. The earth becomes a planet in a binary star system. I'll examine two cases, both of which are unstable for earth and the planet is ejected out from the solar system and a high velocity. In the first graph we see what happens when earth and jupiter start along the same axis although with the earth at 1AU and jupiter at 5.2AU and moving in the same direction. 
+\includegraphics[width=6in]{115yMJ1000.png}\\
+The sun and jupiter begin to move toward each other and earth is slingshotted out of the picture. Note, the step length here is .01 years so the timeframe of the motion is 1.15 years. 
+\includegraphics[width=6in]{MJ1000.png}\\
+In this graph, earth and jupiter begin along the same axis but this time they move in opposite directions. The step length is again .01 so 30 years are shown. The earth remains in orbit around the binary system for about twice as long in this case but is ultimately ejected. The system is slightly more stable in this case because the momentum imbalance of the system is less severe as compared to the first graph of $M_{jupiter}=M_{\odot}$. \newline
+The total momentum of the system needs to be conserved in order for the solar system to be stable. The sun is not stationary but orbits the center of mass of the solar system as do all of the planets. To conserve momentum for the three body simulation, I set the velocity of the sun in such a way that it balances out the momentum contributions from earth and jupiter according to this equation: 
+\[
+M_{\odot}*vy_{sun}=M_{earth}*vy_{earth} + M_{jupiter}*vy_{jupiter}
+\]
+We know the velocity of earth is $2*\pi$ and the velocity of jupiter is $.4727*\pi$. Solving for $vy_{sun}$ as all other components are known, we find the sun should have an initial velocity of .00890885 in the opposite direction of the earth's and jupiter's in order to conserve momentum. The results are below.
+
+\includegraphics[width=6in]{conservation_of_momentum_solar_system_orbits_center_of_mass.png}\\
+
+\includegraphics[width=6in]{sunorbit.png}\\
+Here we see in the closeup that the sun is not stationary but undulates with the periodicity of the two other smaller bodies. \newline
+Finally, I add in all the other planets of the solar system and attempt to keep momentum conserved by calculating the initial velocity based on distance from sun, orbital period, and mass as seen in the following table: 
+\includegraphics[width=6in]{table.png}\\
+The sun's initial velocity was (slightly) increased to accommodate the added planets. The results of the inner planets are included here. The period of observation is 10 years. 
+\includegraphics[width=6in]{innerplanets.png}\\
+And here is a graph of all the planets, although only the outer orbits are discernible. 
+\includegraphics[width=6in]{allplanets.png}\\
+
+The initial positions are arbitrarily estimated as I could not find accurate 2-D cartesian starting points for a circular simulation such as this. Thus, the solar system drifts over a long period of time as seen in this graph. 
+\includegraphics[width=6in]{drift.png}\\
+
+
 
 \item[\bf Conclusion]
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  24 OCT 2014 01:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  24 OCT 2014 16:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -406,174 +406,160 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<earth_sun_system.png, id=21, 1170.774pt x 564.9105pt>
+File: earth_sun_system.png Graphic file (type png)
 
-LaTeX Warning: File `iterations.png' not found on input line 66.
+<use earth_sun_system.png>
+Package pdftex.def Info: earth_sun_system.png used on input line 67.
+(pdftex.def)             Requested size: 433.62622pt x 433.6205pt.
 
-
-! Package pdftex.def Error: File `iterations.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.66 ...cs[width=6in,height=4.5in]{iterations.png}
-                                                  //
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \hbox (29.34822pt too wide) in paragraph at lines 64--68
-[]\T1/cmr/m/n/10.95 //
+Overfull \hbox (18.34753pt too wide) in paragraph at lines 64--67
+ [] 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 91--94
+[2 <./earth_sun_system.png>]
+<planet_escapes_sun_at_vsqrt8pi_in_given_units.png, id=30, 1170.774pt x 564.910
+5pt>
+File: planet_escapes_sun_at_vsqrt8pi_in_given_units.png Graphic file (type png)
 
+ <use planet_escapes_sun_at_vsqrt8pi_in_given_units.png>
+Package pdftex.def Info: planet_escapes_sun_at_vsqrt8pi_in_given_units.png used
+ on input line 74.
+(pdftex.def)             Requested size: 433.62pt x 209.22911pt.
+
+Overfull \hbox (18.34131pt too wide) in paragraph at lines 72--74
+ [] 
  []
 
-[3]
+<planet_doesnt_escape_at_sqrt75pi.png, id=31, 1170.774pt x 564.9105pt>
+File: planet_doesnt_escape_at_sqrt75pi.png Graphic file (type png)
 
-LaTeX Warning: File `w=001.png' not found on input line 110.
+<use planet_doesnt_escape_at_sqrt75pi.png>
+Package pdftex.def Info: planet_doesnt_escape_at_sqrt75pi.png used on input lin
+e 76.
+(pdftex.def)             Requested size: 433.62pt x 209.22911pt.
 
+Overfull \hbox (18.34131pt too wide) in paragraph at lines 75--76
+ [] 
+ []
 
-! Package pdftex.def Error: File `w=001.png' not found.
+[3 <./planet_escapes_sun_at_vsqrt8pi_in_given_units.png> <./planet_doesnt_escap
+e_at_sqrt75pi.png>] <JES.png, id=43, 3512.322pt x 1694.7315pt>
+File: JES.png Graphic file (type png)
+ <use JES.png>
+Package pdftex.def Info: JES.png used on input line 84.
+(pdftex.def)             Requested size: 433.62pt x 209.20325pt.
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \includegraphics[width=6in]{w=001.png}
-                                            \\
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `w=05.png' not found on input line 111.
-
-
-! Package pdftex.def Error: File `w=05.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.111 \includegraphics[width=6in]{w=05.png}
-                                           \\
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `w=10.png' not found on input line 112.
-
-
-! Package pdftex.def Error: File `w=10.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.112 \includegraphics[width=6in]{w=10.png}
-                                           \\
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `w=50.png' not found on input line 113.
-
-
-! Package pdftex.def Error: File `w=50.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.113 \includegraphics[width=6in]{w=50.png}
-                                           \\
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `eigenvaluesw.png' not found on input line 115.
-
-
-! Package pdftex.def Error: File `eigenvaluesw.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.115 ...ludegraphics[width=6in]{eigenvaluesw.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \hbox (18.34131pt too wide) in paragraph at lines 108--116
-[] 
+Overfull \hbox (18.34131pt too wide) in paragraph at lines 82--84
+ [] 
  []
 
 
-Overfull \hbox (18.34131pt too wide) in paragraph at lines 108--116
-[] 
+<jupiter_is_10x_present_mass_solar_system_stable_but_earths_orbit_wobbles_.png,
+ id=44, 2341.548pt x 1129.821pt>
+File: jupiter_is_10x_present_mass_solar_system_stable_but_earths_orbit_wobbles_
+.png Graphic file (type png)
+
+<use jupiter_is_10x_present_mass_solar_system_stable_but_earths_orbit_wobbles_.
+png>
+Package pdftex.def Info: jupiter_is_10x_present_mass_solar_system_stable_but_ea
+rths_orbit_wobbles_.png used on input line 88.
+(pdftex.def)             Requested size: 433.62pt x 209.22049pt.
+
+Overfull \hbox (18.34131pt too wide) in paragraph at lines 87--88
+ [] 
  []
 
+[4 <./JES.png>] <115yMJ1000.png, id=50, 2341.548pt x 1129.821pt>
+File: 115yMJ1000.png Graphic file (type png)
 
-Overfull \hbox (18.34131pt too wide) in paragraph at lines 108--116
-[] 
+<use 115yMJ1000.png>
+Package pdftex.def Info: 115yMJ1000.png used on input line 90.
+(pdftex.def)             Requested size: 433.62pt x 209.22049pt.
+
+Overfull \hbox (18.34131pt too wide) in paragraph at lines 89--90
+ [] 
  []
 
+<MJ1000.png, id=51, 2341.548pt x 1129.821pt>
+File: MJ1000.png Graphic file (type png)
+ <use MJ1000.png>
+Package pdftex.def Info: MJ1000.png used on input line 92.
+(pdftex.def)             Requested size: 433.62pt x 209.22049pt.
 
-Overfull \hbox (18.34131pt too wide) in paragraph at lines 108--116
-[] 
+Overfull \hbox (18.34131pt too wide) in paragraph at lines 91--92
+ [] 
  []
 
+[5 <./jupiter_is_10x_present_mass_solar_system_stable_but_earths_orbit_wobbles_
+.png> <./115yMJ1000.png>]
+<conservation_of_momentum_solar_system_orbits_center_of_mass.png, id=58, 2341.5
+48pt x 1129.821pt>
+File: conservation_of_momentum_solar_system_orbits_center_of_mass.png Graphic f
+ile (type png)
 
-Overfull \hbox (18.34131pt too wide) in paragraph at lines 108--116
-[] 
+<use conservation_of_momentum_solar_system_orbits_center_of_mass.png>
+Package pdftex.def Info: conservation_of_momentum_solar_system_orbits_center_of
+_mass.png used on input line 100.
+(pdftex.def)             Requested size: 433.62pt x 209.22049pt.
+
+Overfull \hbox (18.34131pt too wide) in paragraph at lines 100--100
+ [][] 
  []
 
-[4] [5] [6] [7] [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
+[6 <./MJ1000.png>] <sunorbit.png, id=64, 947.54pt x 445.665pt>
+File: sunorbit.png Graphic file (type png)
+
+<use sunorbit.png>
+Package pdftex.def Info: sunorbit.png used on input line 102.
+(pdftex.def)             Requested size: 433.62pt x 203.94754pt.
+
+Overfull \hbox (18.34131pt too wide) in paragraph at lines 102--102
+ [][] 
+ []
+
+[7 <./conservation_of_momentum_solar_system_orbits_center_of_mass.png> <./sunor
+bit.png>] [8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 182.
  [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 182.
  (./project3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 182.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 182.
 Package rerunfilecheck Info: File `project3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 124.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 182.
  ) 
 Here is how much of TeX's memory you used:
- 7615 strings out of 493117
- 109931 string characters out of 6135433
+ 7660 strings out of 493117
+ 111565 string characters out of 6135433
  225219 words of memory out of 5000000
- 10954 multiletter control sequences out of 15000+600000
- 12626 words of font info for 40 fonts, out of 8000000 for 9000
+ 10993 multiletter control sequences out of 15000+600000
+ 13673 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,8n,58p,1387b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,8n,58p,1387b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on project3.pdf (9 pages, 172253 bytes).
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on project3.pdf (9 pages, 3766467 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
+ 141 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
  13 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

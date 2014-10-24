@@ -12,10 +12,10 @@ using namespace std;
 int main()
 {
     ofstream myfile;
-    myfile.open("datasolarsystem5.txt");
+    myfile.open("datasolarsystemfinal.txt");
     //define step variable h and run length. years are the units
     double h = .01; //step length
-    double final_time = 700; //years
+    double final_time = 300; //years
     double G = 4*M_PI*M_PI; //value of Gravitational constant.
     double earthvel = 2*M_PI;
 
@@ -50,8 +50,6 @@ int main()
         //perform RK4 for the timescale of observation
         RK4::integrate(mySolarSystem.X,h,mySolarSystem);
 
-        //calculate energies and angular momentum
-
         //write to file
         myfile  << mySolarSystem.X[0] << " " << mySolarSystem.X[1]<< " " << mySolarSystem.X[4] << " " << mySolarSystem.X[5] << " " << mySolarSystem.X[8] << " "
         << mySolarSystem.X[9] << " " << mySolarSystem.X[12]<< " " << mySolarSystem.X[13] << " " << mySolarSystem.X[16] << " "
@@ -61,10 +59,8 @@ int main()
     myfile.close();
     for(int i = 0; i < mySolarSystem.bodies.size(); i++) {
         CelestialBody &thisBody = mySolarSystem.bodies[i];
-        //cout << "The position of this object is " << thisBody.position << " with velocity " << thisBody.velocity << endl;
+        cout << "The position of this object is " << thisBody.position << " with velocity " << thisBody.velocity << endl;
     }
-
-    cout << "I just created my first solar system that has " << mySolarSystem.bodies.size() << " objects." << endl;
     return 0;
 }
 
